@@ -19,6 +19,6 @@ class SoftsControllers extends Controller
         $soft = new Soft();
         $soft->name = $request->get('name');
         $soft->save();
-        return redirect()->route('home');
+        return redirect()->route('softs.index');
     }
 }

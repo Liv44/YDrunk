@@ -22,14 +22,12 @@
                     <td>
                         {{$soft->id}} - {{$soft->name}}
                     </td>
-                    <form>
                     <td>
                         <a>Modifier</a>
                     </td>
                     <td>
                         <a>Supprimer</a>
                     </td>
-                    <form>
                     </tr>
                     @endforeach
                 </tbody>
