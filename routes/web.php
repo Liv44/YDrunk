@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\SoftsControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +16,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get(
+    '/softs',
+    [SoftsControllers::class, 'index']
+)->name('softs.index');
+
+Route::post(
+    '/softs',
+    [SoftsControllers::class, 'store']
+)->name('softs.store');
+
