@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SoftsControllers;
+use App\http\Controllers\FruitsControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,4 +28,14 @@ Route::post(
     '/softs',
     [SoftsControllers::class, 'store']
 )->name('softs.store');
+
+Route::get(
+    '/fruits',
+    [FruitsControllers::class, 'index']
+)->name('fruits.index');
+
+Route::post(
+    '/fruits',
+    [FruitsControllers::class, 'store']
+)->name('fruits.store');
 

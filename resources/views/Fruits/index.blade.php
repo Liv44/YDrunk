@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YDrunk</title>
+    <title>Fruits</title>
 </head>
 <body>
-    <p>Bienvenue sur le site YDrunk</p>
-    <a href="{{ route('softs.index')}}">Liste des Softs</a>
-    <a href="{{ route('fruits.index')}}">Liste des fruits</a>
+    <h1>
+        Page fruits
+    </h1>
 </body>
 </html>
