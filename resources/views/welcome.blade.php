@@ -8,6 +8,6 @@
 </head>
 <body>
     <p>Bienvenue sur le site YDrunk</p>
-    <a href="/softs">Liste des Softs</a>
+    <a href="{{ route('softs.index')}}">Liste des Softs</a>
 </body>
 </html>

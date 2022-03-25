@@ -28,3 +28,12 @@ Route::post(
     [SoftsControllers::class, 'store']
 )->name('softs.store');
 
+Route::get(
+    '/softs/{id}/edit', 
+    [SoftsControllers::class, 'edit']
+)->name('softs.edit');
+
+Route::put(
+    '/softs/{id}/update',
+    [SoftsControllers::class, 'update']
+)->name('softs.update');
