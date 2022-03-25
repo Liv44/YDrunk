@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SoftsControllers;
+use App\Http\Controllers\AlcoolsControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,3 +29,6 @@ Route::post(
     [SoftsControllers::class, 'store']
 )->name('softs.store');
 
+Route::get('/alcools', [AlcoolsControllers::class, 'index'])->name('alcools.index');
+Route::post('/alcools', [AlcoolsControllers::class, 'store'])->name('alcools.store');
+Route::get('/delete/{id}', [AlcoolsControllers::class, 'delete'])->name('alcools.delete');

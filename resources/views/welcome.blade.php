@@ -9,5 +9,6 @@
 <body>
     <p>Bienvenue sur le site YDrunk</p>
     <a href="/softs">Liste des Softs</a>
+    <a href="/alcools">Liste des Alcools</a>
 </body>
 </html>
