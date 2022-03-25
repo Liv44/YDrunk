@@ -8,7 +8,7 @@
 </head>
 <body>
     <p>Bienvenue sur le site YDrunk</p>
-    <a href="/softs">Liste des Softs</a>
     <a href="/alcools">Liste des Alcools</a>
+    <a href="{{ route('softs.index')}}">Liste des Softs</a>
 </body>
 </html>
