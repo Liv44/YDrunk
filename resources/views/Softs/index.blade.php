@@ -25,6 +25,9 @@
                     <td>
                         <a href="{{ route('softs.edit', $soft->id) }}">Modifier</a>
                     </td>
+                    <td>
+                        <a href="{{route('softs.delete', $soft->id )}}">Supprimer</a>
+                    </td>
                     </tr>
                     @endforeach
                 </tbody>

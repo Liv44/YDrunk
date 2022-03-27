@@ -21,6 +21,13 @@ class SoftsControllers extends Controller
         return redirect()->route('softs.index');
     }
 
+    public function delete($id) {
+        $soft = Soft::find($id);
+        $soft->delete();
+
+        return redirect()->route('softs.index');
+    }
+
     public function edit($id)
     {
         $soft = Soft::findOrFail($id);

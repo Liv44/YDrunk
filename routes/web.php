@@ -32,6 +32,7 @@ Route::post(
 Route::get('/alcools', [AlcoolsControllers::class, 'index'])->name('alcools.index');
 Route::post('/alcools', [AlcoolsControllers::class, 'store'])->name('alcools.store');
 Route::get('/delete/{id}', [AlcoolsControllers::class, 'delete'])->name('alcools.delete');
+Route::get('/softs/{id}', [SoftsControllers::class, 'delete'])->name('softs.delete');
 Route::get(
     '/softs/{id}/edit', 
     [SoftsControllers::class, 'edit']
