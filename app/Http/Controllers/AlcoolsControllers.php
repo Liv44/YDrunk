@@ -26,4 +26,17 @@ class AlcoolsControllers extends Controller
         $alcool->save();
         return redirect()->route('alcools.index');
     }
+
+    public function edit($id) {
+        $alcool = Alcool::findOrFail($id);
+
+        return view('alcools.edit', compact('alcool'));
+    }
+    
+    public function update(Request $request, $id) {
+        $alcool = Alcool::findOrFail($id);
+        $alcool->name = $request->get('name');
+        $alcool->save();
+        return redirect()->route('alcools.index');
+    }
 }

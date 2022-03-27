@@ -42,3 +42,11 @@ Route::put(
     '/softs/{id}/update',
     [SoftsControllers::class, 'update']
 )->name('softs.update');
+Route::get(
+    '/alcools/{id}/edit',
+    [AlcoolsControllers::class, 'edit']
+)->name('alcools.edit');
+Route::put(
+    '/alcools/{id}/update',
+    [AlcoolsControllers::class, 'update']
+)->name('alcools.update');

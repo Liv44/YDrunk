@@ -23,7 +23,7 @@
                             {{ $alcool->id}} - {{ $alcool->name}}
                         </td>
                         <td>
-                            <a>Modifier</a>
+                            <a href="{{ route('alcools.edit', $alcool->id) }}">Modifier</a>
                         </td>
                         <td>
                             <a href="{{route('alcools.delete', $alcool->id )}}">Supprimer</a>
