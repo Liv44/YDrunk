@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SoftsControllers;
 use App\Http\Controllers\AlcoolsControllers;
+use App\Http\Controllers\SiropsControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +51,11 @@ Route::put(
     '/alcools/{id}/update',
     [AlcoolsControllers::class, 'update']
 )->name('alcools.update');
+Route::get('/sirops', [SiropsControllers::class, 'index'])->name('sirops.index');
+Route::post('/sirops', [SiropsControllers::class, 'store'])->name('sirops.store');
+Route::get('/delete/{id}', [SiropsControllers::class, 'delete'])->name('sirops.delete');
+Route::get('/sirops/{id}/edit', [SiropsControllers::class, 'edit'])->name('sirops.edit');
+Route::put(
+    '/sirops/{id}/update',
+    [SiropsControllers::class, 'update']
+)->name('sirops.update');

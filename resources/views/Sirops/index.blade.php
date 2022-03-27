@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Alcools</title>
+    <title>Sirop</title>
 </head>
 <body>
-    <h1>Liste des Alcools</h1>
+    <h1>Liste des Sirops</h1>
         <table border="1">
             <head>
             <tr>
@@ -17,16 +17,16 @@
             </tr>
             <head>
                 <tbody>
-                    @foreach($alcools as $alcool)
+                    @foreach($sirops as $sirop)
                     <tr>
                         <td>
-                            {{ $alcool->id}} - {{ $alcool->name}}
+                            {{ $sirop->id}} - {{ $sirop->name}}
                         </td>
                         <td>
-                            <a href="{{ route('alcools.edit', $alcool->id) }}">Modifier</a>
+                            <a href="{{ route('sirops.edit', $sirop->id) }}">Modifier</a>
                         </td>
                         <td>
-                            <a href="{{route('alcools.delete', $alcool->id )}}">Supprimer</a>
+                            <a href="{{route('sirops.delete', $sirop->id )}}">Supprimer</a>
                         </td>
                     </tr>
                     @endforeach
@@ -36,7 +36,7 @@
             </head>
             
         </table>
-        <form method="POST" action="{{route('alcools.store')}}">
+        <form method="POST" action="{{route('sirops.store')}}">
             @csrf
             <input type="text" name="name" placeholder="Nom">
             <button type="submit">Envoyer</button>

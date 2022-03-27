@@ -10,5 +10,6 @@
     <p>Bienvenue sur le site YDrunk</p>
     <a href="{{ route('alcools.index')}}">Liste des Alcools</a>
     <a href="{{ route('softs.index')}}">Liste des Softs</a>
+    <a href="{{ route('sirops.index')}}">Liste des Sirops</a>
 </body>
 </html>
