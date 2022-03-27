@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\SoftsControllers;
+use App\Http\Controllers\AlcoolsControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,4 +17,36 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
+
+Route::get(
+    '/softs',
+    [SoftsControllers::class, 'index']
+)->name('softs.index');
+
+Route::post(
+    '/softs',
+    [SoftsControllers::class, 'store']
+)->name('softs.store');
+
+Route::get('/alcools', [AlcoolsControllers::class, 'index'])->name('alcools.index');
+Route::post('/alcools', [AlcoolsControllers::class, 'store'])->name('alcools.store');
+Route::get('/delete/{id}', [AlcoolsControllers::class, 'delete'])->name('alcools.delete');
+Route::get('/softs/{id}', [SoftsControllers::class, 'delete'])->name('softs.delete');
+Route::get(
+    '/softs/{id}/edit', 
+    [SoftsControllers::class, 'edit']
+)->name('softs.edit');
+
+Route::put(
+    '/softs/{id}/update',
+    [SoftsControllers::class, 'update']
+)->name('softs.update');
+Route::get(
+    '/alcools/{id}/edit',
+    [AlcoolsControllers::class, 'edit']
+)->name('alcools.edit');
+Route::put(
+    '/alcools/{id}/update',
+    [AlcoolsControllers::class, 'update']
+)->name('alcools.update');
