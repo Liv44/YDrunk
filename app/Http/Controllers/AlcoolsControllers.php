@@ -10,33 +10,33 @@ class AlcoolsControllers extends Controller
     public function index() {
         $alcools = Alcool::all();
 
-        return(view('alcools.index', compact('alcools')));
+        return(view('alcoolstype.index', compact('alcools')));
     }
 
     public function delete($id) {
         $alcool = Alcool::find($id);
         $alcool->delete();
 
-        return redirect()->route('alcools.index');
+        return redirect()->route('alcoolstype.index');
     }
 
     public function store(Request $request){
         $alcool = new Alcool();
         $alcool->name = $request->get('name');
         $alcool->save();
-        return redirect()->route('alcools.index');
+        return redirect()->route('alcoolstype.index');
     }
 
     public function edit($id) {
         $alcool = Alcool::findOrFail($id);
 
-        return view('alcools.edit', compact('alcool'));
+        return view('alcoolstype.edit', compact('alcool'));
     }
     
     public function update(Request $request, $id) {
         $alcool = Alcool::findOrFail($id);
         $alcool->name = $request->get('name');
         $alcool->save();
-        return redirect()->route('alcools.index');
+        return redirect()->route('alcoolstype.index');
     }
 }

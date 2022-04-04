@@ -14,6 +14,7 @@
             <tr>
                 <th>Nom</th>
                 <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>     
             <head>
                 <tbody>
@@ -26,7 +27,7 @@
                         <a href="{{ route('softs.edit', $soft->id) }}">Modifier</a>
                     </td>
                     <td>
-                        <a href="{{route('softs.delete', $soft->id )}}">Supprimer</a>
+                        <a href="{{route('softs.delete', $soft->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer ce soft ?')">Supprimer</a>
                     </td>
                     </tr>
                     @endforeach
