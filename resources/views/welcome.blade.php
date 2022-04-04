@@ -8,7 +8,9 @@
 </head>
 <body>
     <p>Bienvenue sur le site YDrunk</p>
+    <a href="{{ route('alcools.index')}}">Liste des Alcools</a>
     <a href="{{ route('softs.index')}}">Liste des Softs</a>
+    <a href="{{ route('sirops.index')}}">Liste des Sirops</a>
     <a href="{{ route('fruits.index')}}">Liste des fruits</a>
 </body>
 </html>
