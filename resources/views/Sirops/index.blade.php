@@ -26,7 +26,7 @@
                             <a href="{{ route('sirops.edit', $sirop->id) }}">Modifier</a>
                         </td>
                         <td>
-                            <a href="{{route('sirops.delete', $sirop->id )}}">Supprimer</a>
+                            <a href="{{route('sirops.delete', $sirop->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer cet alcool ?')">Supprimer</a>
                         </td>
                     </tr>
                     @endforeach
