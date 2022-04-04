@@ -12,6 +12,7 @@
             <head>
             <tr>
                 <th>Nom</th>
+                <th>Degré</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
@@ -22,6 +23,8 @@
                         <td>
                             {{ $alcool->id}} - {{ $alcool->name}}
                         </td>
+                        <td>
+                            {{ $alcool->degree}}
                         <td>
                             <a href="{{ route('alcools.edit', $alcool->id) }}">Modifier</a>
                         </td>
@@ -39,6 +42,7 @@
         <form method="POST" action="{{route('alcools.store')}}">
             @csrf
             <input type="text" name="name" placeholder="Nom">
+            <input type="number" name="degree" placeholder="Degré" pattern="[0-9]" value="0">
             <button type="submit">Envoyer</button>
         </form>
     
