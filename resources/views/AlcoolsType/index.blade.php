@@ -17,16 +17,16 @@
             </tr>
             <head>
                 <tbody>
-                    @foreach($alcools as $alcool)
+                    @foreach($alcoolsType as $alcoolType)
                     <tr>
                         <td>
-                            {{ $alcool->id}} - {{ $alcool->name}}
+                            {{ $alcoolType->id}} - {{ $alcoolType->name}}
                         </td>
                         <td>
-                            <a href="{{ route('alcoolstype.edit', $alcool->id) }}">Modifier</a>
+                            <a href="{{ route('alcoolstype.edit', $alcoolType->id) }}">Modifier</a>
                         </td>
                         <td>
-                            <a href="{{ route('alcoolstype.delete', $alcool->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer ce type ?')">Supprimer</a>
+                            <a href="{{ route('alcoolstype.delete', $alcoolType->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer ce type ?')">Supprimer</a>
                         </td>
                     </tr>
                     @endforeach

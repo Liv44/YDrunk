@@ -8,35 +8,35 @@ use App\Models\AlcoolType;
 class AlcoolsTypeControllers extends Controller
 {
     public function index() {
-        $alcools = AlcoolType::all();
+        $alcoolsType = AlcoolType::all();
 
-        return(view('alcoolstype.index', compact('alcools')));
+        return(view('alcoolstype.index', compact('alcoolsType')));
     }
 
     public function delete($id) {
-        $alcool = AlcoolType::find($id);
-        $alcool->delete();
+        $alcoolType = AlcoolType::find($id);
+        $alcoolType->delete();
 
         return redirect()->route('alcoolstype.index');
     }
 
     public function store(Request $request){
-        $alcool = new AlcoolType();
-        $alcool->name = $request->get('name');
-        $alcool->save();
+        $alcoolType = new AlcoolType();
+        $alcoolType->name = $request->get('name');
+        $alcoolType->save();
         return redirect()->route('alcoolstype.index');
     }
 
     public function edit($id) {
-        $alcool = AlcoolType::findOrFail($id);
+        $alcoolType = AlcoolType::findOrFail($id);
 
-        return view('alcoolstype.edit', compact('alcool'));
+        return view('alcoolstype.edit', compact('alcoolType'));
     }
     
     public function update(Request $request, $id) {
-        $alcool = AlcoolType::findOrFail($id);
-        $alcool->name = $request->get('name');
-        $alcool->save();
+        $alcoolType = AlcoolType::findOrFail($id);
+        $alcoolType->name = $request->get('name');
+        $alcoolType->save();
         return redirect()->route('alcoolstype.index');
     }
 }
