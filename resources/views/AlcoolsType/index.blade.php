@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sirop</title>
+    <title>Alcools</title>
 </head>
 <body>
-    <h1>Liste des Sirops</h1>
+    <h1>Types d'Alcools</h1>
         <table border="1">
             <head>
             <tr>
@@ -17,16 +17,16 @@
             </tr>
             <head>
                 <tbody>
-                    @foreach($sirops as $sirop)
+                    @foreach($alcoolsType as $alcoolType)
                     <tr>
                         <td>
-                            {{ $sirop->id}} - {{ $sirop->name}}
+                            {{ $alcoolType->id}} - {{ $alcoolType->name}}
                         </td>
                         <td>
-                            <a href="{{ route('sirops.edit', $sirop->id) }}">Modifier</a>
+                            <a href="{{ route('alcoolstype.edit', $alcoolType->id) }}">Modifier</a>
                         </td>
                         <td>
-                            <a href="{{route('sirops.delete', $sirop->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer ce sirop ?')">Supprimer</a>
+                            <a href="{{ route('alcoolstype.delete', $alcoolType->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer ce type ?')">Supprimer</a>
                         </td>
                     </tr>
                     @endforeach
@@ -36,7 +36,7 @@
             </head>
             
         </table>
-        <form method="POST" action="{{route('sirops.store')}}">
+        <form method="POST" action="{{route('alcoolstype.store')}}">
             @csrf
             <input type="text" name="name" placeholder="Nom">
             <button type="submit">Envoyer</button>

@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SoftsControllers;
-use App\http\Controllers\FruitsControllers;
+use App\Http\Controllers\FruitsControllers;
+use App\Http\Controllers\AlcoolsTypeControllers;
 use App\Http\Controllers\AlcoolsControllers;
 use App\Http\Controllers\SiropsControllers;
 /*
@@ -48,9 +49,9 @@ Route::put(
     [FruitsControllers::class, 'update']
 )->name('fruits.update');
 
-Route::get('/alcools', [AlcoolsControllers::class, 'index'])->name('alcools.index');
-Route::post('/alcools', [AlcoolsControllers::class, 'store'])->name('alcools.store');
-Route::get('/delete/{id}', [AlcoolsControllers::class, 'delete'])->name('alcools.delete');
+Route::get('/alcools/type', [AlcoolsTypeControllers::class, 'index'])->name('alcoolstype.index');
+Route::post('/alcools/type', [AlcoolsTypeControllers::class, 'store'])->name('alcoolstype.store');
+Route::get('/alcools/type/{id}', [AlcoolsTypeControllers::class, 'delete'])->name('alcoolstype.delete');
 Route::get('/softs/{id}', [SoftsControllers::class, 'delete'])->name('softs.delete');
 Route::get(
     '/softs/{id}/edit', 
@@ -62,18 +63,26 @@ Route::put(
     [SoftsControllers::class, 'update']
 )->name('softs.update');
 Route::get(
-    '/alcools/{id}/edit',
-    [AlcoolsControllers::class, 'edit']
-)->name('alcools.edit');
+    '/alcools/type/{id}/edit',
+    [AlcoolsTypeControllers::class, 'edit']
+)->name('alcoolstype.edit');
 Route::put(
-    '/alcools/{id}/update',
-    [AlcoolsControllers::class, 'update']
-)->name('alcools.update');
+    '/alcools/type/{id}/update',
+    [AlcoolsTypeControllers::class, 'update']
+)->name('alcoolstype.update');
 Route::get('/sirops', [SiropsControllers::class, 'index'])->name('sirops.index');
 Route::post('/sirops', [SiropsControllers::class, 'store'])->name('sirops.store');
-Route::get('/delete/{id}', [SiropsControllers::class, 'delete'])->name('sirops.delete');
+Route::get('/sirops/{id}', [SiropsControllers::class, 'delete'])->name('sirops.delete');
 Route::get('/sirops/{id}/edit', [SiropsControllers::class, 'edit'])->name('sirops.edit');
 Route::put(
     '/sirops/{id}/update',
     [SiropsControllers::class, 'update']
 )->name('sirops.update');
+Route::get('/alcools', [AlcoolsControllers::class, 'index'])->name('alcools.index');
+Route::post('/alcools', [AlcoolsControllers::class, 'store'])->name('alcools.store');
+Route::get('/alcools/{id}', [AlcoolsControllers::class, 'delete'])->name('alcools.delete');
+Route::get('/alcools/{id}/edit', [AlcoolsControllers::class, 'edit'])->name('alcools.edit');
+Route::put(
+    '/alcools/{id}/update',
+    [AlcoolsControllers::class, 'update']
+)->name('alcools.update');

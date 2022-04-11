@@ -9,11 +9,10 @@
     <body>
         <h2>Modifier un alcool</h2>
 
-    <form action="{{ route('alcools.update', $alcool->id) }}" method="POST">
+    <form action="{{ route('alcoolstype.update', $alcoolType->id) }}" method="POST">
         @csrf
         @method("PUT")
-        <input type="text" name="name" placeholder="Nom" value="{{ $alcool->name }}">
-        <input type="Number" name="degree" placeholder="Degré" pattern="[0-9]" value="{{ $alcool->degree }}">
+        <input type="text" name="name" placeholder="name" value="{{ $alcoolType->name }}">
         <button type="submit">Envoyer</button>
     </form>
         
