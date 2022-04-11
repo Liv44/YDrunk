@@ -13,11 +13,13 @@
             <tr>
                 <th>Nom</th>
                 <th>Degré</th>
+                <th>Type</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
             <head>
                 <tbody>
+                    
                     @foreach($alcools as $alcool)
                     <tr>
                         <td>
@@ -25,6 +27,10 @@
                         </td>
                         <td>
                             {{ $alcool->degree}}
+                        </td>
+                        <td>
+                            {{$alcool->alcoolsType->name}}
+                        </td>
                         <td>
                             <a href="{{ route('alcools.edit', $alcool->id) }}">Modifier</a>
                         </td>
@@ -42,7 +48,12 @@
         <form method="POST" action="{{route('alcools.store')}}">
             @csrf
             <input type="text" name="name" placeholder="Nom">
-            <input type="number" name="degree" placeholder="Degré" pattern="[0-9]" value="0">
+            <input type="number" name="degree" placeholder="Degré" step="0.1">
+            <select name="alcool_type_id">
+                @foreach($alcoolTypes as $alcoolsType)
+                    <option name="alcool_type_id" value="{{$alcoolsType->id}}">{{$alcoolsType->name}}</option>
+                @endforeach
+            </select>
             <button type="submit">Envoyer</button>
         </form>
     
