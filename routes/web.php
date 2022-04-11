@@ -6,6 +6,8 @@ use App\Http\Controllers\SoftsControllers;
 use App\Http\Controllers\AlcoolsTypeControllers;
 use App\Http\Controllers\AlcoolsControllers;
 use App\Http\Controllers\SiropsControllers;
+use App\Http\Controllers\GlassesControllers;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,3 +86,27 @@ Route::put(
     '/alcools/{id}/update',
     [AlcoolsControllers::class, 'update']
 )->middleware(['auth:admin'])->name('alcools.update');
+
+
+
+///Glasses
+
+Route::get(
+    '/glasses',
+    [GlassesControllers::class, 'index']
+)->name('glasses.index');
+
+Route::post(
+    '/glasses',
+    [GlassesControllers::class, 'store']
+)->name('glasses.store');
+
+Route::get(
+    '/glasses/{id}/edit', 
+    [GlassesControllers::class, 'edit']
+)->name('glasses.edit');
+
+Route::put(
+    '/glasses/{id}/update',
+    [GlassesControllers::class, 'update']
+)->name('glasses.update');
