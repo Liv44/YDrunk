@@ -16,7 +16,9 @@ return new class extends Migration
         Schema::create('alcool', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('degree');
+            $table->float('degree');
+            $table->unsignedBigInteger('alcool_type_id')->nullable();
+            $table->foreign('alcool_type_id')->references('id')->on('alcool_type');
             $table->timestamps();
         });
     }

@@ -13,4 +13,9 @@ class AlcoolType extends Model {
     protected $fillable = [
         "name"
     ];
+
+    public function alcoolsName()
+    {
+        return $this->hasMany(Alcools::class);
+    }
 }
