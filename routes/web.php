@@ -39,7 +39,14 @@ Route::get(
 Route::post(
     '/fruits',
     [FruitsControllers::class, 'store']
-)->name('fruits.store');
+)->name('fruit.store');
+
+Route::get('fruits/{id}/edit', [FruitsControllers::class, 'edit'])->name('fruits.edit');
+Route::get('/fruits/{id}', [FruitsControllers::class, 'delete'])->name('fruits.delete');
+Route::put(
+    '/fruits/{id}/update',
+    [FruitsControllers::class, 'update']
+)->name('fruits.update');
 
 Route::get('/alcools', [AlcoolsControllers::class, 'index'])->name('alcools.index');
 Route::post('/alcools', [AlcoolsControllers::class, 'store'])->name('alcools.store');

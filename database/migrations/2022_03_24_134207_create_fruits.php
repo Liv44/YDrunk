@@ -11,11 +11,14 @@ return new class extends Migration
      *
      * @return void
      */
+
+    // Creation table 
     public function up()
     {
         Schema::create('fruits', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('imagePath');
             $table->timestamps();
         });
     }
