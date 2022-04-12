@@ -26,6 +26,8 @@
                     </td>
                     <td>
                         
+                        <img src="./storage/app/public/{{$fruit->imagePath}}" alt="image">
+
                     </td>
                     <td>
                         <a href="{{ route('fruits.edit', $fruit->id) }}">Modifier</a>
@@ -37,11 +39,12 @@
                     @endforeach
                 </tbody>
         </table>
+        
     <hr>
-        <form class="thisForm" action="{{ route('fruit.store') }}" method="POST">
+        <form class="thisForm" action="{{ route('fruit.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="text" name="name" placeholder="Nom">
-            <input type="file" name="imagePath" placeholder="image">
+            <input type="file" name="imagePath">
             <button class="newSoft" type="submit">Envoyer</button>
         </form>
         

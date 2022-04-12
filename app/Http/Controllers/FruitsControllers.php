@@ -16,8 +16,11 @@ class FruitsControllers extends Controller
     public function store(Request $request){   
         $fruit = new Fruit();
         $fruit->name = $request->get('name');
-        // TO DO : Insert image
-        // $fruit->
+        $fruitFile = $request->file("imagePath");
+        $fileName = time()."_".$fruitFile->getClientOriginalName();
+        $filePath = $fruitFile->storeAs("uploads", $fileName, 'public');
+
+        $fruit->imagePath = $filePath;
         $fruit->save();
         return redirect()->route('fruits.index');
     }
