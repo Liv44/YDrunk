@@ -39,6 +39,8 @@ require __DIR__.'/adminauth.php';
     return view('welcome');
 })->name('home'); */
 
+
+// Softs
 Route::get(
     '/softs',
     [SoftsControllers::class, 'index']
@@ -110,3 +112,5 @@ Route::put(
     '/glasses/{id}/update',
     [GlassesControllers::class, 'update']
 )->name('glasses.update');
+
+Route::get('/glasses/{id}', [GlassesControllers::class, 'delete'])->name('glasses.delete');

@@ -9,11 +9,11 @@
     <body>
         <h2>Modifier un verre</h2>
 
-    <form action="{{ route('glasses.update', $glass->id) }}" method="POST">
+    <form action="{{ route('glasses.update', $glass->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method("PUT")
         <input type="text" name="name" placeholder="name" value="{{ $glass->name }}">
-        <input type="file" name="imageURL" required value="{{ $glass->imageURL }}">
+        <input type="file" name="imageURL" accept="image/png, image/jpg, image/jpeg">
 
         <button type="submit">Envoyer</button>
     </form>
