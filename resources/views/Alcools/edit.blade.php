@@ -13,7 +13,12 @@
         @csrf
         @method("PUT")
         <input type="text" name="name" placeholder="Nom" value="{{ $alcool->name }}">
-        <input type="Number" name="degree" placeholder="Degré" pattern="[0-9]" value="{{ $alcool->degree }}">
+        <input type="Number" name="degree" placeholder="Degré" step="0.1" value="{{ $alcool->degree }}">
+        <select name="alcool_type_id">
+            @foreach($alcoolTypes as $alcoolsType)
+                <option name="alcool_type_id" value="{{$alcoolsType->id}}">{{$alcoolsType->name}}</option>
+            @endforeach
+        </select>
         <button type="submit">Envoyer</button>
     </form>
         

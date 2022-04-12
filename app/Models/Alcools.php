@@ -14,5 +14,11 @@ class Alcools extends Model
     protected $fillable = [
         "name",
         "degree",
+        "alcool_type_id",
     ];
+
+    public function alcoolsType()
+    {
+        return $this->belongsTo(AlcoolType::class, "alcool_type_id");
+    }
 }
