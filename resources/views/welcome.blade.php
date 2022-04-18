@@ -13,9 +13,20 @@
     <a href="{{ route('softs.index')}}">Liste des Softs</a>
     <a href="{{ route('sirops.index')}}">Liste des Sirops</a>
     <div>
+        <br>
         @if (Route::has('admin.login'))
         @auth('admin')
+            <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
             <a href="{{url('/admin/dashboard')}}">Admin Dashboard</a>
+            <form method="POST" action="{{ route('admin.logout') }}">
+                @csrf
+
+                <button :href="route('admin.logout')"
+                        onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                    {{ __('Log Out') }}
+                </button>
+            </form>
         @else
             <a href="{{ route('admin.login') }}">Admin Login</a>
 

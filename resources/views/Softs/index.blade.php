@@ -8,7 +8,7 @@
 </head>
     <body>
         <h1>Liste des Softs</h1>
-
+        <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
         <table border="1">
             <head>
             <tr>

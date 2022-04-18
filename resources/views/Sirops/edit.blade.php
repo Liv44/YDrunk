@@ -8,6 +8,7 @@
 </head>
     <body>
         <h2>Modifier un sirop</h2>
+        <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
 
     <form action="{{ route('sirops.update', $sirop->id) }}" method="POST">
         @csrf

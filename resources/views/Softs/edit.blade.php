@@ -8,7 +8,7 @@
 </head>
     <body>
         <h2>Modifier un soft</h2>
-
+        <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
     <form action="{{ route('softs.update', $soft->id) }}" method="POST">
         @csrf
         @method("PUT")
