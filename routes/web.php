@@ -47,9 +47,9 @@ Route::post(
     [SoftsControllers::class, 'store']
 )->name('softs.store');
 
-Route::get('/alcools/type', [AlcoolsTypeControllers::class, 'index'])->name('alcoolstype.index');
-Route::post('/alcools/type', [AlcoolsTypeControllers::class, 'store'])->name('alcoolstype.store');
-Route::get('/alcools/type/{id}', [AlcoolsTypeControllers::class, 'delete'])->name('alcoolstype.delete');
+Route::get('/alcools/type', [AlcoolsTypeControllers::class, 'index'])->middleware(['auth:admin'])->name('alcoolstype.index');
+Route::post('/alcools/type', [AlcoolsTypeControllers::class, 'store'])->middleware(['auth:admin'])->name('alcoolstype.store');
+Route::get('/alcools/type/{id}', [AlcoolsTypeControllers::class, 'delete'])->middleware(['auth:admin'])->name('alcoolstype.delete');
 Route::get('/softs/{id}', [SoftsControllers::class, 'delete'])->name('softs.delete');
 Route::get(
     '/softs/{id}/edit', 
@@ -63,11 +63,11 @@ Route::put(
 Route::get(
     '/alcools/type/{id}/edit',
     [AlcoolsTypeControllers::class, 'edit']
-)->name('alcoolstype.edit');
+)->middleware(['auth:admin'])->name('alcoolstype.edit');
 Route::put(
     '/alcools/type/{id}/update',
     [AlcoolsTypeControllers::class, 'update']
-)->name('alcoolstype.update');
+)->middleware(['auth:admin'])->name('alcoolstype.update');
 Route::get('/sirops', [SiropsControllers::class, 'index'])->name('sirops.index');
 Route::post('/sirops', [SiropsControllers::class, 'store'])->name('sirops.store');
 Route::get('/sirops/{id}', [SiropsControllers::class, 'delete'])->name('sirops.delete');
