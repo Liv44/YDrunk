@@ -12,5 +12,18 @@
     <a href="{{ route('alcools.index')}}">Liste des Alcools</a>
     <a href="{{ route('softs.index')}}">Liste des Softs</a>
     <a href="{{ route('sirops.index')}}">Liste des Sirops</a>
+    <div>
+        @if (Route::has('admin.login'))
+        @auth('admin')
+            <a href="{{url('/admin/dashboard')}}">Admin Dashboard</a>
+        @else
+            <a href="{{ route('admin.login') }}">Admin Login</a>
+
+        @if (Route::has('admin.register'))
+            <a href="{{ route('admin.register') }}">Admin Register</a>
+        @endif
+        @endauth
+        @endif
+    </div>
 </body>
 </html>
