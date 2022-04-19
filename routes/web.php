@@ -96,21 +96,21 @@ Route::put(
 Route::get(
     '/glasses',
     [GlassesControllers::class, 'index']
-)->name('glasses.index');
+)->middleware(['auth:admin'])->name('glasses.index');
 
 Route::post(
     '/glasses',
     [GlassesControllers::class, 'store']
-)->name('glasses.store');
+)->middleware(['auth:admin'])->name('glasses.store');
 
 Route::get(
     '/glasses/{id}/edit', 
     [GlassesControllers::class, 'edit']
-)->name('glasses.edit');
+)->middleware(['auth:admin'])->name('glasses.edit');
 
 Route::put(
     '/glasses/{id}/update',
     [GlassesControllers::class, 'update']
-)->name('glasses.update');
+)->middleware(['auth:admin'])->name('glasses.update');
 
-Route::get('/glasses/{id}', [GlassesControllers::class, 'delete'])->name('glasses.delete');
+Route::get('/glasses/{id}', [GlassesControllers::class, 'delete'])->middleware(['auth:admin'])->name('glasses.delete');

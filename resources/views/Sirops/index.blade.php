@@ -42,6 +42,7 @@
             <input type="text" name="name" placeholder="Nom">
             <button type="submit">Envoyer</button>
         </form>
+        <a href="{{route('admin.dashboard')}}">Retour</a>
     
 </body>
 </html>

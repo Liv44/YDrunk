@@ -8,13 +8,16 @@
 </head>
     <body>
         <h1>Liste des Verres</h1>
+        <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
         <img src="{{asset('./public/img/1649678919_poing.png')}}" alt="">
         <table border="1">
             <head>
             <tr>
                 <th>Nom</th>
-                <th>URL de l'image</th>
+                <th>Image</th>
                 <th>Modifier</th>
+                <th>Supprimer</th>
+
             </tr>     
             <head>
                 <tbody>
@@ -31,7 +34,7 @@
                         <a href="{{ route('glasses.edit', $glass->id) }}">Modifier</a>
                     </td>
                     <td>
-                        <a href="{{route('glasses.delete', $glass->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer ce soft ?')">Supprimer</a>
+                        <a href="{{route('glasses.delete', $glass->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer ce verre ?')">Supprimer</a>
                     </td>
                     </tr>
                     @endforeach
@@ -45,6 +48,6 @@
 
             <button class="newGlass" type="submit">Envoyer</button>
         </form>
-        
+    <a href="{{route('admin.dashboard')}}">Retour</a>
     </body>
 </html>
