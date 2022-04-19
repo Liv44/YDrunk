@@ -13,5 +13,6 @@
     <a href="{{ route('softs.index')}}">Liste des Softs</a>
     <a href="{{ route('sirops.index')}}">Liste des Sirops</a>
     <a href="{{ route('fruits.index')}}">Liste des fruits</a>
+    <a href="{{ route('cocktails.index') }}"> Liste des cocktails </a>
 </body>
 </html>

@@ -7,6 +7,7 @@ use App\Http\Controllers\FruitsControllers;
 use App\Http\Controllers\AlcoolsTypeControllers;
 use App\Http\Controllers\AlcoolsControllers;
 use App\Http\Controllers\SiropsControllers;
+use App\Http\Controllers\CocktailsControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -86,3 +87,10 @@ Route::put(
     '/alcools/{id}/update',
     [AlcoolsControllers::class, 'update']
 )->name('alcools.update');
+
+Route::get('/cocktails', [CocktailsControllers::class, 'index'])->name('cocktails.index');
+Route::post('/cocktails', [CocktailsControllers::class, 'store'])->name('cocktails.store');
+Route::get('/cocktails/{id}', [CocktailsControllers::class, 'delete'])->name('cocktails.delete');
+Route::get('/cocktails/{id}/edit', [CocktailsControllers::class, 'edit'])->name('cocktails.edit');
+Route::put('/cocktails/{id}/update', [CocktailsControllers::class, 'update'])->name('cocktails.update');
+

@@ -21,4 +21,9 @@ class Alcools extends Model
     {
         return $this->belongsTo(AlcoolType::class, "alcool_type_id");
     }
+
+    public function alcoolsName()
+    {
+        return $this->hasMany(Cocktails::class);
+    }
 }

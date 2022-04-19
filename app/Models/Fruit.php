@@ -15,4 +15,11 @@ class Fruit extends Model
         "name",
         "imagePath"
     ];
+
+    public function fruitName()
+    {
+        return $this->hasMany(Cocktails::class);
+    }
+
+    
 }

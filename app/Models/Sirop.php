@@ -14,4 +14,9 @@ class Sirop extends Model
     protected $fillable = [
         "name"
     ];
+
+    public function siropName()
+    {
+        return $this->hasMany(Cocktails::class);
+    }
 }

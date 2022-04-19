@@ -14,4 +14,9 @@ class Soft extends Model
     protected $fillable = [
         "name"
     ];
+
+    public function softName()
+    {
+        return $this->hasMany(Cocktails::class);
+    }
 }
