@@ -6,6 +6,8 @@ use App\Http\Controllers\SoftsControllers;
 use App\Http\Controllers\AlcoolsTypeControllers;
 use App\Http\Controllers\AlcoolsControllers;
 use App\Http\Controllers\SiropsControllers;
+use App\Http\Controllers\GlassesControllers;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +39,8 @@ require __DIR__.'/adminauth.php';
     return view('welcome');
 })->name('home'); */
 
+
+// Softs
 Route::get(
     '/softs',
     [SoftsControllers::class, 'index']
@@ -84,3 +88,29 @@ Route::put(
     '/alcools/{id}/update',
     [AlcoolsControllers::class, 'update']
 )->middleware(['auth:admin'])->name('alcools.update');
+
+
+
+///Glasses
+
+Route::get(
+    '/glasses',
+    [GlassesControllers::class, 'index']
+)->middleware(['auth:admin'])->name('glasses.index');
+
+Route::post(
+    '/glasses',
+    [GlassesControllers::class, 'store']
+)->middleware(['auth:admin'])->name('glasses.store');
+
+Route::get(
+    '/glasses/{id}/edit', 
+    [GlassesControllers::class, 'edit']
+)->middleware(['auth:admin'])->name('glasses.edit');
+
+Route::put(
+    '/glasses/{id}/update',
+    [GlassesControllers::class, 'update']
+)->middleware(['auth:admin'])->name('glasses.update');
+
+Route::get('/glasses/{id}', [GlassesControllers::class, 'delete'])->middleware(['auth:admin'])->name('glasses.delete');
