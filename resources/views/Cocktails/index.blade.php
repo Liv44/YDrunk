@@ -21,10 +21,17 @@
                     @foreach($cocktails as $cocktail)
                     <tr>
                         <td>
-                            {{ $cocktail->id}} - {{ $cocktail->name}}
+                            {{ $cocktail->id}} - {{ $cocktail->name}} 
+                            <br>
+                            {{ $cocktail->glassType->name }}
+                            <br>
+                            
+                            <img src="..\storage\app\public\images\{{ $cocktail->glassType->imageURL }}" alt="image">
+
                         </td>
                         <td>
                             <a href="{{ route('cocktails.edit', $cocktail->id) }}">Modifier</a>
+                            
                         </td>
                         <td>
                             <a href="{{route('cocktails.delete', $cocktail->id )}}" onclick="return confirm('Voulez-vous vraiment supprimer ce cocktail ?')">Supprimer</a>
