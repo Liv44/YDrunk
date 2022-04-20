@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cocktail;
 use App\Models\Glass;
+use App\Models\Ingredient;
+
 
 class CocktailsControllers extends Controller
 {
@@ -19,13 +21,17 @@ class CocktailsControllers extends Controller
         $glasses= Glass::all();
 
         //faire un redirect vers view('ingredients.addIngredient) en renvoyant l'ID du cocktail;
+
         return(view('cocktails.create', compact('cocktails', 'glasses')));
     }
 
     public function delete($id) {
         $cocktail = Cocktail::find($id);
         $cocktail->delete();
-
+        $ingredients = Ingredient::where('cocktail_id', $id)->get();
+        foreach($ingredients as $ingredient){
+            $ingredient->delete();
+        }
         return redirect()->route('cocktails.index');
     }
 
@@ -34,7 +40,7 @@ class CocktailsControllers extends Controller
         $cocktail->name = $request->get('name');
         $cocktail->glass_id = $request->get('glass');
         $cocktail->save();
-        return redirect()->route('cocktails.index');
+        return redirect()->route('ingredients.index', $cocktail->id);
     }
 
     public function edit($id) {

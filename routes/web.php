@@ -180,3 +180,8 @@ Route::post(
     '/cocktails/{id}/ingredients/add',
     [IngredientsControllers::class, 'add']
 )->middleware(['auth:admin'])->name('ingredients.add');
+
+Route::get(
+    '/ingredients/{id}',
+    [IngredientsControllers::class, 'delete']
+)->middleware(['auth:admin'])->name('ingredients.delete');

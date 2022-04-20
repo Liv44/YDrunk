@@ -7,7 +7,7 @@
     <title>Cocktails</title>
 </head>
 <body>
-    <h1>Création d'un Cocktail</h1>
+    <h1>Création du cocktail : {{$cocktailName}}</h1>
     <h2>Ajout des ingrédients 2/2</h2>
     <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
             <table>
@@ -23,13 +23,17 @@
                         <tr>
                             <td>{{$ingredient->ingredient_type}}</td>
                             <td>{{$ingredient->ingredientName->name}}</td>
-                            <td>{{$ingredient->quantity}}</td>                            
+                            <td>{{$ingredient->quantity}}</td>
+                            <td>
+                                <a href="{{route('ingredients.delete', $ingredient->id )}}">Supprimer</a>
+                            </td>                            
                         </tr>
                     @endforeach
                 </tbody>
             </table>
-        <form method="POST"  action="{{route('ingredients.add', $ingredients[0]->cocktail_id)}}">
+        <form method="POST"  action="{{route('ingredients.add', $id)}}">
             @csrf
+            <input hidden name="counter" id="counter">
             <div id="form">
             <button type="button" id="plus">(+) Ajouter un ingrédient</button>
             </div>
@@ -44,16 +48,19 @@
     let counter = 0;
 
     button.addEventListener('click', function() {
-        let tabOptions = ["alcools", "fruits", "softs", "Sirops"];
+        let div = document.createElement("div");
+        
+        // Select Type of ingredient
+        let tabOptions = ["alcools", "fruits", "softs", "sirops"];
         let select = newSelect(tabOptions);
         select.name = "ingredient_type_" + counter;
-        let div = document.createElement("div");
+        select.setAttribute("required", true);
         div.appendChild(select);
-        document.getElementById('form').insertBefore(div, button);
 
-
+        // Select ingredient
         let select2 = document.createElement("select");
         select2.name = "ingredient_id_" + counter;
+        select2.setAttribute("required", true);
         @foreach($alcools as $alcool)
             var option = document.createElement('option');
             option.value = "{{$alcool->id}}";
@@ -62,16 +69,29 @@
         @endforeach
         div.appendChild(select2);
         
-
+        // Input quantity
         let inputQuantity = document.createElement("input");
             inputQuantity.type = "text";
             inputQuantity.name = "quantity_" + counter;
             inputQuantity.placeholder = "Quantité";
             inputQuantity.setAttribute("required", true);
             div.appendChild(inputQuantity);
+
+        // Button delete
+        let buttonDelete = document.createElement("button");
+            buttonDelete.type = "button";
+            buttonDelete.innerHTML = "Supprimer";
+            buttonDelete.addEventListener('click', function() {
+                div.remove();
+            });
+            div.appendChild(buttonDelete);
         
+        //Add div ingredients to form
+        document.getElementById('form').insertBefore(div, button);
         
         counter++;
+        document.getElementById("counter").value = counter;
+
         select.addEventListener('change', function() {
             
             switch(select.value) {
@@ -104,7 +124,7 @@
                         select2.appendChild(option);
                     @endforeach
                     break;
-                case 'Sirops':
+                case 'sirops':
                     removeOptions(select2);
 
                     @foreach($sirops as $sirop)

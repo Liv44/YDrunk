@@ -45,15 +45,6 @@
             
         </table>
         <a href="{{route('cocktails.create')}}">Ajouter un cocktail</a>
-        <!-- <form method="POST" id="form" action="{{route('cocktails.store')}}">
-            @csrf
-            <input type="text" name="name" placeholder="Nom">
-            <div class="row">
-
-            </div> 
-            <button type="button" onClick="" id="plus" >(+) Ajouter un élément</button>
-            <button type="submit">Envoyer</button>
-        </form> -->
         <a href="{{route('admin.dashboard')}}">Retour</a>
     
 </body>
