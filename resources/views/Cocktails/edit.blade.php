@@ -20,12 +20,8 @@
                 <option value="{{ $crystal->id }}"> {{ $crystal->name }} </option>
             @endforeach
         </select>
-        <!-- <input type="text" name="" -->
-
-        <!-- <input type="text" name="glassName" placeholder="name of glass" value="{{ $cocktail->glassType->name }}"> -->
-        <!-- <input type="text" name="" placeholder="" value=""> -->
         <button type="submit">Envoyer</button>
     </form>
-        
+        <a href="{{ route('ingredients.index', $cocktail->id)}}">Modifier les ingrédients</a>
     </body>
 </html>

@@ -27,4 +27,5 @@ class Ingredient extends Model
             case "sirops": return $this->belongsTo(Sirop::class, "ingredient_id");
         }
     }
+
 }

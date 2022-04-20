@@ -13,19 +13,12 @@
             
         <form method="POST"  action="{{route('cocktails.store')}}">
             @csrf
-            <input type="text" name="name" placeholder="Nom">
-            <!-- <input type="select"> -->
+            <input required type="text" name="name" placeholder="Nom">
             <select name="glass">
                 @foreach($glasses as $crystal)
                     <option value='{{$crystal->id}}'> {{ $crystal->name }} </option>
                 @endforeach
             </select>
-
-            <div id="form">
-            <!-- <button type="button" onClick="" id="plus" >(+) Ajouter un ingrédient</button> -->
-    
-            </div>
-            <a href="{{route('ingredients.index', 1)}}">Suivant</a>
             <button type="submit">Suivant</button>
         </form>
         <a href="{{route('admin.dashboard')}}">Retour</a>
