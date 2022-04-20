@@ -172,6 +172,11 @@ Route::get('/cocktails/{id}', [CocktailsControllers::class, 'delete'])->middlewa
 // Ingredients
 
 Route::get(
-    '/cocktails/{id}/addIngredients',
-    [IngredientsControllers::class, 'addIngredients']
-)->middleware(['auth:admin'])->name('ingredients.addIngredients');
+    '/cocktails/{id}/ingredients',
+    [IngredientsControllers::class, 'index']
+)->middleware(['auth:admin'])->name('ingredients.index');
+
+Route::post(
+    '/cocktails/{id}/ingredients/add',
+    [IngredientsControllers::class, 'add']
+)->middleware(['auth:admin'])->name('ingredients.add');

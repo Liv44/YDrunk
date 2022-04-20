@@ -15,10 +15,12 @@ return new class extends Migration
     {
         Schema::create('ingredient', function (Blueprint $table) {
             $table->id();
-            $table->string('cocktailID');
-            $table->string('ingredientType');
-            $table->unsignedBigInteger('ingredientID');
-            $table->unsignedBigInteger('quantity');
+            $table->string('cocktail_id');
+            $table->string('ingredient_type');
+            $table->unsignedBigInteger('ingredient_id');
+            $table->string('quantity');
+            $table->timestamps();
+
         });
     }
 

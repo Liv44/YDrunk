@@ -8,10 +8,27 @@
 </head>
 <body>
     <h1>Création d'un Cocktail</h1>
-    <h2>Ajout des ingrédients 2/2</h2
+    <h2>Ajout des ingrédients 2/2</h2>
     <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
-            
-        <form method="POST"  action="{{route('cocktails.store')}}">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type de l'ingrédient</th>
+                        <th>Nom de l'ingrédient</th>
+                        <th>Quantité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($ingredients as $ingredient)
+                        <tr>
+                            <td>{{$ingredient->ingredient_type}}</td>
+                            <td>{{$ingredient->ingredientName->name}}</td>
+                            <td>{{$ingredient->quantity}}</td>                            
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        <form method="POST"  action="{{route('ingredients.add', $ingredients[0]->cocktail_id)}}">
             @csrf
             <div id="form">
             <button type="button" id="plus">(+) Ajouter un ingrédient</button>
@@ -24,33 +41,41 @@
 </html>
 <script type='text/javascript'>
     button = document.getElementById('plus');
-    var counter = 0;
+    let counter = 0;
 
     button.addEventListener('click', function() {
-        var tabOptions = ["Alcools", "Fruits", "Softs", "Sirops"];
-        var select = newSelect(tabOptions, "level1");
-        select.name = "first-select-" + counter;
-        var div = document.createElement("div");
+        let tabOptions = ["alcools", "fruits", "softs", "Sirops"];
+        let select = newSelect(tabOptions);
+        select.name = "ingredient_type_" + counter;
+        let div = document.createElement("div");
         div.appendChild(select);
         document.getElementById('form').insertBefore(div, button);
-        var select2 = document.createElement("select");
-        select2.name = "second-select-" + counter;
-        var optionDefault = document.createElement('option');
-        optionDefault.value=0;
-        optionDefault.text="Choisissez un type";
-        select2.appendChild(optionDefault);
+
+
+        let select2 = document.createElement("select");
+        select2.name = "ingredient_id_" + counter;
+        @foreach($alcools as $alcool)
+            var option = document.createElement('option');
+            option.value = "{{$alcool->id}}";
+            option.text = "{{$alcool->name}}";
+            select2.appendChild(option);
+        @endforeach
         div.appendChild(select2);
+        
 
-        var inputQuantity = document.createElement("input");
-            inputQuantity.type = "number";
-            inputQuantity.name = "input-" + counter;
+        let inputQuantity = document.createElement("input");
+            inputQuantity.type = "text";
+            inputQuantity.name = "quantity_" + counter;
             inputQuantity.placeholder = "Quantité";
+            inputQuantity.setAttribute("required", true);
             div.appendChild(inputQuantity);
-
+        
+        
+        counter++;
         select.addEventListener('change', function() {
             
             switch(select.value) {
-                case 'Alcools':
+                case 'alcools':
                     removeOptions(select2);
 
                     @foreach($alcools as $alcool)
@@ -60,15 +85,17 @@
                         select2.appendChild(option);
                     @endforeach
                     break;
-                // case 'Fruits':
-                //     var tabOptions = [];
-                //     @foreach($alcools as $alcool)
-                //         tabOptions.push("{{$alcool->name}}");
-                //     @endforeach
-                //     var select2 = newSelect(tabOptions, "level2");
-                //     div.appendChild(select2);
-                //     break;
-                case 'Softs':
+                case 'fruits':
+                    removeOptions(select2);
+
+                    @foreach($fruits as $fruit)
+                        var option = document.createElement('option');
+                        option.value = "{{$fruit->id}}";
+                        option.text = "{{$fruit->name}}";
+                        select2.appendChild(option);
+                    @endforeach
+                    break;
+                case 'softs':
                     removeOptions(select2);
                     @foreach($softs as $soft)
                         var option = document.createElement('option');
@@ -92,15 +119,11 @@
     });
 
 
-    function newSelect(tabOptions, level){
-        var select = document.createElement('select');
-
-        var optionDefault = document.createElement('option');
-        optionDefault.text="Choisissez un type";
-        select.appendChild(optionDefault);
+    function newSelect(tabOptions){
+        let select = document.createElement('select'); 
 
         tabOptions.forEach((optionName) => {
-            var option = document.createElement('option');
+            let option = document.createElement('option');
             option.value = optionName;
             option.text = optionName;
             select.appendChild(option);
@@ -110,7 +133,7 @@
     }
 
     function removeOptions(selectElement) {
-        var i, L = selectElement.options.length - 1;
+        let i, L = selectElement.options.length - 1;
         for(i = L; i >= 0; i--) {
             selectElement.remove(i);
         }
