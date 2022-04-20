@@ -8,6 +8,7 @@
 </head>
     <body>
         <h2>Modifier un alcool</h2>
+        <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
 
     <form action="{{ route('alcoolstype.update', $alcoolType->id) }}" method="POST">
         @csrf

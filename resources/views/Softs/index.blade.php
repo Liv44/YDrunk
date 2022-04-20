@@ -8,7 +8,7 @@
 </head>
     <body>
         <h1>Liste des Softs</h1>
-
+        <h3>Connecté en tant que : {{Auth::guard('admin')->user()->name}} - ADMIN</h3>
         <table border="1">
             <head>
             <tr>
@@ -39,6 +39,7 @@
             <input type="text" name="name" placeholder="Nom">
             <button class="newSoft" type="submit">Envoyer</button>
         </form>
+    <a href="{{route('admin.dashboard')}}">Retour</a>
         
     </body>
 </html>
