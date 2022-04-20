@@ -25,7 +25,7 @@
             <!-- <button type="button" onClick="" id="plus" >(+) Ajouter un ingrédient</button> -->
     
             </div>
-            <a href="{{route('ingredients.addIngredients', 1)}}">Suivant</a>
+            <a href="{{route('ingredients.index', 1)}}">Suivant</a>
             <button type="submit">Suivant</button>
         </form>
         <a href="{{route('admin.dashboard')}}">Retour</a>
