@@ -17,7 +17,6 @@ class AlcoolsControllers extends Controller
     public function delete($id) {
         $alcool = Alcools::find($id);
         $alcool->delete();
-
         return redirect()->route('alcools.index');
     }
 
@@ -33,7 +32,6 @@ class AlcoolsControllers extends Controller
     public function edit($id) {
         $alcool = Alcools::findOrFail($id);
         $alcoolTypes = AlcoolType::with('alcoolsName')->get();
-
         return view('alcools.edit', compact('alcool', 'alcoolTypes'));
     }
 

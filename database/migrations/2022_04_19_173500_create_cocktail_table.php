@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('cocktail', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('glassID');
+            $table->unsignedBigInteger('glass_id');
+            $table->timestamps();
         });
     }
 

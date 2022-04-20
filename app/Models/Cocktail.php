@@ -12,11 +12,11 @@ class Cocktail extends Model
 
     protected $fillable = [
         "name",
-        "glassID"
+        "glass_id"
     ];
 
-    public function alcoolsType()
+    public function glassType()
     {
-        // return $this->belongsTo(AlcoolType::class, "alcool_type_id");
+        return $this->belongsTo(Glass::class, "glass_id");
     }
 }

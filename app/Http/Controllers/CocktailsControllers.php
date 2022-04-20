@@ -22,8 +22,6 @@ class CocktailsControllers extends Controller
         return(view('cocktails.create', compact('cocktails', 'glasses')));
     }
 
-
-
     public function delete($id) {
         $cocktail = Cocktail::find($id);
         $cocktail->delete();
@@ -32,10 +30,27 @@ class CocktailsControllers extends Controller
     }
 
     public function store(Request $request){
-        $cocktail = new Cocktails();
+        $cocktail = new Cocktail();
         $cocktail->name = $request->get('name');
+        $cocktail->glass_id = $request->get('glass');
         $cocktail->save();
         return redirect()->route('cocktails.index');
     }
-    //
+
+    public function edit($id) {
+        $cocktail = Cocktail::findOrFail($id);
+        $glassTypes = Glass::with('cocktailsName')->get();
+
+        return view('cocktails.edit', compact('cocktail', 'glassTypes'));
+    }
+
+    public function update(Request $request, $id) {
+        $cocktail = Cocktail::findOrFail($id);
+        $cocktail->name = $request->get('name');
+        $cocktail->glass_id = $request->get('glass_id');
+        // $alcool->degree = $request->get('degree');
+        // $alcool->alcool_type_id = $request->get('alcool_type_id');
+        $cocktail->save();
+        return redirect()->route('cocktails.index');
+    }
 }

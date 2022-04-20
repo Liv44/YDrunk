@@ -15,4 +15,8 @@ class Glass extends Model
         "name",
         "imageURL"
     ];
+
+    public function cocktailsName() {
+        return $this->hasMany(Cocktail::class);
+    }
 }
