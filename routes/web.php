@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\SoftsControllers;
+use App\Http\Controllers\FruitsControllers;
 use App\Http\Controllers\AlcoolsTypeControllers;
 use App\Http\Controllers\AlcoolsControllers;
 use App\Http\Controllers\SiropsControllers;
@@ -51,10 +52,28 @@ Route::post(
     [SoftsControllers::class, 'store']
 )->middleware(['auth:admin'])->name('softs.store');
 
+Route::get(
+    '/fruits',
+    [FruitsControllers::class, 'index']
+)->middleware(['auth:admin'])->name('fruits.index');
+
+Route::post(
+    '/fruits',
+    [FruitsControllers::class, 'store']
+)->middleware(['auth:admin'])->name('fruit.store');
+
+Route::get('fruits/{id}/edit', [FruitsControllers::class, 'edit'])->middleware(['auth:admin'])->name('fruits.edit');
+Route::get('/fruits/{id}', [FruitsControllers::class, 'delete'])->middleware(['auth:admin'])->name('fruits.delete');
+Route::put(
+    '/fruits/{id}/update',
+    [FruitsControllers::class, 'update']
+)->middleware(['auth:admin'])->name('fruits.update');
+
 Route::get('/alcools/type', [AlcoolsTypeControllers::class, 'index'])->middleware(['auth:admin'])->name('alcoolstype.index');
 Route::post('/alcools/type', [AlcoolsTypeControllers::class, 'store'])->middleware(['auth:admin'])->name('alcoolstype.store');
 Route::get('/alcools/type/{id}', [AlcoolsTypeControllers::class, 'delete'])->middleware(['auth:admin'])->name('alcoolstype.delete');
 Route::get('/softs/{id}', [SoftsControllers::class, 'delete'])->middleware(['auth:admin'])->name('softs.delete');
+
 Route::get(
     '/softs/{id}/edit', 
     [SoftsControllers::class, 'edit']
@@ -88,11 +107,6 @@ Route::put(
     '/alcools/{id}/update',
     [AlcoolsControllers::class, 'update']
 )->middleware(['auth:admin'])->name('alcools.update');
-
-
-
-///Glasses
-
 Route::get(
     '/glasses',
     [GlassesControllers::class, 'index']
