@@ -27,7 +27,7 @@
                         {{$glass->id}} - {{$glass->name}}
                     </td>
                     <td>
-                        <img src="{{ asset('../storage/app/public/images/' . $glass->imageURL) }}" width="100" height="100"></img>
+                        <img src="{{ asset('../storage/app/public/images/' . $glass->imageURL) }}" width="100"></img>
                         
                     </td>
                     <td>
@@ -48,6 +48,6 @@
 
             <button class="newGlass" type="submit">Envoyer</button>
         </form>
-    <a href="{{route('admin.dashboard')}}">Retour</a>
+        <a href="{{route('admin.dashboard')}}">Retour au dashboard</a>
     </body>
 </html>

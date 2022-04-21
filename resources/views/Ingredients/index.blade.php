@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Cocktails</title>
+    <title>Ingrédients</title>
 </head>
 <body>
     <h1>Création du cocktail : {{$cocktailName}}</h1>
@@ -37,9 +37,10 @@
             <div id="form">
             <button type="button" id="plus">(+) Ajouter un ingrédient</button>
             </div>
-            <button type="submit">Envoyer</button>
+            <p>-----------</p>
+            <button type="submit">Valider tous les ingrédients</button>
         </form>
-        <a href="{{route('admin.dashboard')}}">Retour</a>
+        <a href="{{route('cocktails.index')}}">Retour aux cocktails</a>
     
 </body>
 </html>

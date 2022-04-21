@@ -26,7 +26,7 @@
                     </td>
                     <td>
                         
-                        <img src="./storage/app/public/{{$fruit->imagePath}}" alt="image">
+                        <img src="../storage/app/public/{{$fruit->imagePath}}" alt="image" width=100 >
 
                     </td>
                     <td>
@@ -43,10 +43,11 @@
     <hr>
         <form class="thisForm" action="{{ route('fruit.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <input type="text" name="name" placeholder="Nom">
-            <input type="file" name="imagePath">
+            <input type="text" name="name" required placeholder="Nom">
+            <input type="file" required name="imagePath">
             <button class="newSoft" type="submit">Envoyer</button>
         </form>
-        
+        <a href="{{route('admin.dashboard')}}">Retour au dashboard</a>
+
     </body>
 </html>

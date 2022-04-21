@@ -57,7 +57,8 @@
             </select>
             <button type="submit">Envoyer</button>
         </form>
-        <a href="{{route('admin.dashboard')}}">Retour</a>
+        <a href="{{route('admin.dashboard')}}">Retour au dashboard</a>
+
     
 </body>
 </html>

@@ -54,7 +54,23 @@ Route::post(
     '/softs',
     [SoftsControllers::class, 'store']
 )->middleware(['auth:admin'])->name('softs.store');
+Route::get(
+    '/softs/{id}', 
+    [SoftsControllers::class, 'delete']
+)->middleware(['auth:admin'])->name('softs.delete');
 
+Route::get(
+    '/softs/{id}/edit', 
+    [SoftsControllers::class, 'edit']
+)->middleware(['auth:admin'])->name('softs.edit');
+
+Route::put(
+    '/softs/{id}/update',
+    [SoftsControllers::class, 'update']
+)->middleware(['auth:admin'])->name('softs.update');
+
+
+//Fruits
 Route::get(
     '/fruits',
     [FruitsControllers::class, 'index']
@@ -72,20 +88,13 @@ Route::put(
     [FruitsControllers::class, 'update']
 )->middleware(['auth:admin'])->name('fruits.update');
 
+
+//ALCOOL TYPE
 Route::get('/alcools/type', [AlcoolsTypeControllers::class, 'index'])->middleware(['auth:admin'])->name('alcoolstype.index');
 Route::post('/alcools/type', [AlcoolsTypeControllers::class, 'store'])->middleware(['auth:admin'])->name('alcoolstype.store');
 Route::get('/alcools/type/{id}', [AlcoolsTypeControllers::class, 'delete'])->middleware(['auth:admin'])->name('alcoolstype.delete');
-Route::get('/softs/{id}', [SoftsControllers::class, 'delete'])->middleware(['auth:admin'])->name('softs.delete');
 
-Route::get(
-    '/softs/{id}/edit', 
-    [SoftsControllers::class, 'edit']
-)->middleware(['auth:admin'])->name('softs.edit');
 
-Route::put(
-    '/softs/{id}/update',
-    [SoftsControllers::class, 'update']
-)->middleware(['auth:admin'])->name('softs.update');
 Route::get(
     '/alcools/type/{id}/edit',
     [AlcoolsTypeControllers::class, 'edit']
@@ -94,6 +103,9 @@ Route::put(
     '/alcools/type/{id}/update',
     [AlcoolsTypeControllers::class, 'update']
 )->middleware(['auth:admin'])->name('alcoolstype.update');
+
+
+//SIROPS
 Route::get('/sirops', [SiropsControllers::class, 'index'])->middleware(['auth:admin'])->name('sirops.index');
 Route::post('/sirops', [SiropsControllers::class, 'store'])->middleware(['auth:admin'])->name('sirops.store');
 Route::get('/sirops/{id}', [SiropsControllers::class, 'delete'])->middleware(['auth:admin'])->name('sirops.delete');
@@ -102,6 +114,8 @@ Route::put(
     '/sirops/{id}/update',
     [SiropsControllers::class, 'update']
 )->middleware(['auth:admin'])->name('sirops.update');
+
+//ALCOOLS
 Route::get('/alcools', [AlcoolsControllers::class, 'index'])->middleware(['auth:admin'])->name('alcools.index');
 Route::post('/alcools', [AlcoolsControllers::class, 'store'])->middleware(['auth:admin'])->name('alcools.store');
 Route::get('/alcools/{id}', [AlcoolsControllers::class, 'delete'])->middleware(['auth:admin'])->name('alcools.delete');

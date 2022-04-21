@@ -13,6 +13,7 @@
             <head>
             <tr>
                 <th>Nom</th>
+                <th>Ingrédients</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
@@ -26,8 +27,14 @@
                             {{ $cocktail->glassType->name }}
                             <br>
                             
-                            <img src="..\storage\app\public\images\{{ $cocktail->glassType->imageURL }}" alt="image">
+                            <img src="..\storage\app\public\images\{{ $cocktail->glassType->imageURL }}" alt="image" width=100>
 
+                        </td>
+                        <td>
+                            @foreach($cocktail->ingredients as $ingredient)
+                                {{ $ingredient->ingredientName->name }}
+                            </br>
+                            @endforeach
                         </td>
                         <td>
                             <a href="{{ route('cocktails.edit', $cocktail->id) }}">Modifier</a>
@@ -45,7 +52,8 @@
             
         </table>
         <a href="{{route('cocktails.create')}}">Ajouter un cocktail</a>
-        <a href="{{route('admin.dashboard')}}">Retour</a>
+        <a href="{{route('admin.dashboard')}}">Retour au dashboard</a>
+
     
 </body>
 </html>
