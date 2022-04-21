@@ -8,6 +8,9 @@ use App\Http\Controllers\AlcoolsTypeControllers;
 use App\Http\Controllers\AlcoolsControllers;
 use App\Http\Controllers\SiropsControllers;
 use App\Http\Controllers\GlassesControllers;
+use App\Http\Controllers\CocktailsControllers;
+use App\Http\Controllers\IngredientsControllers;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,10 +22,10 @@ use App\Http\Controllers\GlassesControllers;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [CocktailsControllers::class, 'indexPublic']
+)->name('indexPublic');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -107,6 +110,10 @@ Route::put(
     '/alcools/{id}/update',
     [AlcoolsControllers::class, 'update']
 )->middleware(['auth:admin'])->name('alcools.update');
+
+
+///Glasses
+
 Route::get(
     '/glasses',
     [GlassesControllers::class, 'index']
@@ -128,3 +135,52 @@ Route::put(
 )->middleware(['auth:admin'])->name('glasses.update');
 
 Route::get('/glasses/{id}', [GlassesControllers::class, 'delete'])->middleware(['auth:admin'])->name('glasses.delete');
+
+
+//Cocktails
+
+
+Route::get(
+    '/cocktails',
+    [CocktailsControllers::class, 'index']
+)->middleware(['auth:admin'])->name('cocktails.index');
+
+Route::get(
+    '/cocktails/create',
+    [CocktailsControllers::class, 'create']
+)->middleware(['auth:admin'])->name('cocktails.create');
+
+Route::post(
+    '/cocktails',
+    [CocktailsControllers::class, 'store']
+)->middleware(['auth:admin'])->name('cocktails.store');
+
+Route::get(
+    '/cocktails/{id}/edit', 
+    [CocktailsControllers::class, 'edit']
+)->middleware(['auth:admin'])->name('cocktails.edit');
+
+Route::put(
+    '/cocktails/{id}/update',
+    [CocktailsControllers::class, 'update']
+)->middleware(['auth:admin'])->name('cocktails.update');
+
+Route::get('/cocktails/{id}', [CocktailsControllers::class, 'delete'])->middleware(['auth:admin'])->name('cocktails.delete');
+
+
+// Ingredients
+
+Route::get(
+    '/cocktails/{id}/ingredients',
+    [IngredientsControllers::class, 'index']
+)->middleware(['auth:admin'])->name('ingredients.index');
+
+Route::post(
+    '/cocktails/{id}/ingredients/add',
+    [IngredientsControllers::class, 'add']
+)->middleware(['auth:admin'])->name('ingredients.add');
+
+Route::get(
+    '/ingredients/{id}',
+    [IngredientsControllers::class, 'delete']
+)->middleware(['auth:admin'])->name('ingredients.delete');

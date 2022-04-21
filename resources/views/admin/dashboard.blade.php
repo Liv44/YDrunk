@@ -9,6 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
+                    <a href="{{ route('cocktails.index')}}">Liste des Cocktails</a>
+                </div>
+                <div class="p-6 bg-white border-b border-gray-200">
                     <a href="{{ route('alcoolstype.index')}}">Liste des types d'Alcools</a>
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
@@ -22,8 +25,13 @@
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
 
+                <a href="{{ route('fruits.index')}}">Liste des Fruits</a>
+                </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+
                 <a href="{{ route('glasses.index')}}">Liste des Verres</a>
                 </div>
+                
             </div>
         </div>
     </div>
