@@ -25,8 +25,13 @@
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
 
+                <a href="{{ route('fruits.index')}}">Liste des Fruits</a>
+                </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+
                 <a href="{{ route('glasses.index')}}">Liste des Verres</a>
                 </div>
+                
             </div>
         </div>
     </div>

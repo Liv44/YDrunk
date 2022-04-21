@@ -22,10 +22,8 @@ use App\Http\Controllers\IngredientsControllers;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('accueil');
-});
+Route::get('/', [CocktailsControllers::class, 'indexPublic']
+)->name('indexPublic');
 
 
 
@@ -140,6 +138,7 @@ Route::get('/glasses/{id}', [GlassesControllers::class, 'delete'])->middleware([
 
 
 //Cocktails
+
 
 Route::get(
     '/cocktails',

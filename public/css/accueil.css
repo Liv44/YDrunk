@@ -30,8 +30,12 @@
     --light: #f8f9fa;
     --light-gray: #ebecf2;
     --dark: #343a40;
-    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
 }
 
 * {
@@ -44,7 +48,9 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
 }
@@ -58,7 +64,7 @@ nav {
 
 header {
     position: relative;
-    height: 100vh;
+    height: 50vh;
 }
 
 main {
@@ -186,7 +192,6 @@ main {
     left: 50%;
 }
 
-
 /* Menu */
 
 .menu {
@@ -233,8 +238,8 @@ main {
     margin: 0 0.75em 0 0;
 }
 
-.menu-item {}
-
+.menu-item {
+}
 
 /* HEADER */
 
@@ -335,7 +340,6 @@ main {
     z-index: 10;
 }
 
-
 /* Player Button */
 
 .player-button-wrapper {
@@ -379,7 +383,6 @@ main {
     opacity: 1;
 }
 
-
 /* Video Modal */
 
 .video-modal-wrapper {
@@ -399,14 +402,12 @@ main {
     height: 75%;
 }
 
-
 /* Selection */
 
 ::selection {
     color: var(--white);
     background: var(--primary);
 }
-
 
 /* SCROLLBAR */
 
@@ -565,10 +566,10 @@ main {
 
 .title {
     display: flex;
-    font-size: 1.5em;
+    font-size: 1em;
     font-weight: bold;
     text-align: center;
-    margin: 0 0 20px 0;
+    /* margin: 0 0 20px 0; */
     color: white;
 }
 

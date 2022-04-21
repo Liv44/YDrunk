@@ -41,42 +41,33 @@
         
       </header>
       <div class="background">
+      @foreach($cocktails as $cocktail)
       <div class="table">
         <div class="title">
-            <h1>Nom du cocktails</h1>
-    </div>
+            <h1>{{$cocktail->name}}</h1>
+        </div> 
+        <div class="title">
+        <h3>{{$cocktail->glassType->name}}</h3>
+        </div> 
     <table class="content-table">
         <thead>
         <tr>
             <th>Ingrédient</th>
             <th>Type</th>
             <th>Quantité</th>
-            <th>Verre</th>
         </tr>
         </thead>
         <tbody>
+          @foreach($cocktail->ingredients as $ingredient)
         <tr>
-            <td>1</td>
-            <td>Domenic</td>
-            <td>88,110</td>
-            <td>88,110</td>
-
+            <td>{{$ingredient->ingredientName->name}}</td>
+            <td>{{$ingredient->ingredient_type}}</td>
+            <td>{{$ingredient->quantity}}</td>
         </tr>
-            <td>2</td>
-            <td>Sally</td>
-            <td>72,400</td>
-            <td>72,400</td>
-
-        </tr>
-        <tr>
-            <td>3</td>
-            <td>Nick</td>
-            <td>52,300</td>
-            <td>52,300</td>
-
-        </tr>
+        @endforeach
         </tbody>
     </table>
+    @endforeach
     </div>
 </div>
     </main>

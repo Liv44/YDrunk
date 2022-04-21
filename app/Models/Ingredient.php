@@ -28,4 +28,9 @@ class Ingredient extends Model
         }
     }
 
+    public function cocktailName()
+    {
+        return $this->belongsTo(Cocktail::class, "cocktail_id");
+    }
+
 }

@@ -15,12 +15,15 @@ class CocktailsControllers extends Controller
         return(view('cocktails.index', compact('cocktails')));
     }
 
+    public function indexPublic(){
+        $cocktails = Cocktail::all();
+        return(view('accueil', compact('cocktails')));
+    }
+
     public function create() {
         $cocktails = Cocktail::all();
 
         $glasses= Glass::all();
-
-        //faire un redirect vers view('ingredients.addIngredient) en renvoyant l'ID du cocktail;
 
         return(view('cocktails.create', compact('cocktails', 'glasses')));
     }
@@ -54,8 +57,6 @@ class CocktailsControllers extends Controller
         $cocktail = Cocktail::findOrFail($id);
         $cocktail->name = $request->get('name');
         $cocktail->glass_id = $request->get('glass_id');
-        // $alcool->degree = $request->get('degree');
-        // $alcool->alcool_type_id = $request->get('alcool_type_id');
         $cocktail->save();
         return redirect()->route('cocktails.index');
     }
